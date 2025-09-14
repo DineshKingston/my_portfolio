@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-slate-900 text-slate-100;
+    /* Prevent horizontal scrolling */
+    overflow-x: hidden;
+    /* Better text rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Mobile viewport fix */
+  @media screen and (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    html {
+      font-size: 13px;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-4 py-3 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    /* Mobile touch target */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-4 py-3 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-download {
+    @apply bg-gradient-to-r from-green-500 to-teal-600 hover:from-teal-600 hover:to-green-500 text-white px-4 py-3 sm:px-6 sm:py-3 rounded-lg transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .section-padding {
+    @apply px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20;
+  }
+  
+  .mobile-container {
+    @apply max-w-sm mx-auto sm:max-w-2xl lg:max-w-7xl;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  /* Desktop hover effects only */
+  @media (hover: hover) {
+    .card-hover:hover {
+      @apply transform scale-105 shadow-2xl;
+    }
+  }
+  
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500;
+  }
+  
+  .glassmorphism {
+    @apply bg-slate-900/90 backdrop-blur-md border border-slate-700/50;
+  }
+  
+  /* Mobile-specific utilities */
+  .mobile-text-lg {
+    @apply text-base sm:text-lg;
+  }
+  
+  .mobile-text-xl {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .mobile-text-2xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  .mobile-text-3xl {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  .mobile-text-4xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl;
+  }
+  
+  .mobile-text-5xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl;
+  }
+  
+  .mobile-grid {
+    @apply grid gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .mobile-space-y {
+    @apply space-y-4 sm:space-y-6;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  /* Safe area for notched phones */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Touch targets */
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Prevent text selection on mobile for UI elements */
+  .no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
