@@ -148,7 +148,7 @@ const Projects = () => {
                     {/* Action Buttons - Mobile Stack */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                       <a
-                        href={projects[0].github}
+                        href="https://github.com/DineshKingston/FrontenD_History_AIDocument"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-secondary w-full sm:w-auto group/btn"
@@ -157,7 +157,7 @@ const Projects = () => {
                         View Code
                       </a>
                       <a
-                        href={projects[0].demo}
+                        href="https://main.d1lc98fojg6u70.amplifyapp.com/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-primary w-full sm:w-auto group/btn"
@@ -244,7 +244,7 @@ const Projects = () => {
                     {/* Project Links - Mobile Stack */}
                     <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                       <a
-                        href={project.github}
+                        href="https://github.com/DineshKingston"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium group/link touch-target"
@@ -287,7 +287,7 @@ const Projects = () => {
                   <ExternalLink className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </Link>
                 <a
-                  href={portfolioData.social.github}
+                  href="https://github.com/DineshKingston"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-secondary group w-full sm:w-auto"
