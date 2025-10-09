@@ -44,7 +44,7 @@ const Projects = () => {
 
                 <div className="flex space-x-4">
                   <a
-                    href={project.github}
+                    href="https://github.com/DineshKingston/FrontenD_History_AIDocument"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-slate-400 hover:text-blue-400 transition-colors"
@@ -53,7 +53,7 @@ const Projects = () => {
                     Code
                   </a>
                   <a
-                    href={project.demo}
+                    href="https://main.d1lc98fojg6u70.amplifyapp.com/"
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center text-slate-400 hover:text-blue-400 transition-colors"
