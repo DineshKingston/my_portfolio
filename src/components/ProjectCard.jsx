@@ -84,7 +84,7 @@ const ProjectCard = ({ project, featured = false }) => {
               {/* Action Buttons */}
               <div className="flex space-x-4 pt-4">
                 <a
-                  href={project.github}
+                  href="https://github.com/DineshKingston/FrontenD_History_AIDocument"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center bg-slate-700/50 hover:bg-slate-600/50 text-white px-6 py-3 rounded-xl transition-all duration-300 font-medium backdrop-blur-sm border border-slate-600/50 group/btn"
@@ -93,7 +93,7 @@ const ProjectCard = ({ project, featured = false }) => {
                   View Code
                 </a>
                 <a
-                  href={project.demo}
+                  href="https://main.d1lc98fojg6u70.amplifyapp.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-6 py-3 rounded-xl transition-all duration-300 font-medium group/btn"
@@ -205,7 +205,7 @@ const ProjectCard = ({ project, featured = false }) => {
         {/* Project Links */}
         <div className="flex space-x-3">
           <a
-            href={project.github}
+            href="https://github.com/DineshKingston"
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center bg-slate-700/50 hover:bg-slate-600/50 text-slate-300 hover:text-white px-4 py-2 rounded-lg transition-all duration-300 text-sm font-medium group/link"
