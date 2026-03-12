@@ -1,129 +1,128 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Code, Briefcase, Mail, FileText } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
+
+const NAV_ITEMS = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Skills', href: '/skills' },
+  { label: 'Experience', href: '/experience' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Education', href: '/education' },
+  { label: 'Contact', href: '/contact' },
+];
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Handle scroll for header background
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
-    setIsMenuOpen(false);
+    setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
-
-  const navigation = [
-    { name: 'Home', href: '/', icon: Home },
-    { name: 'About', href: '/about', icon: User },
-    { name: 'Skills', href: '/skills', icon: Code },
-    { name: 'Projects', href: '/projects', icon: Briefcase },
-    { name: 'Resume', href: '/resume', icon: FileText },
-    { name: 'Contact', href: '/contact', icon: Mail },
-  ];
-
   return (
-    <>
-      <header className={`fixed top-0 left-0 right-0 z-50 safe-top transition-all duration-300 ${
-        scrolled ? 'bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-slate-900/80'
-      } border-b border-slate-700/50`}>
-        <nav className="mobile-container px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 sm:h-16">
-            {/* Logo */}
-            <Link 
-              to="/" 
-              className="text-lg sm:text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent no-select"
-            >
-              Dinesh Kingston
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-1">
-              {navigation.map((item) => {
-                const isActive = location.pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 touch-target ${
-                      isActive 
-                        ? 'bg-blue-500 text-white shadow-lg' 
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800'
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-slate-300 hover:text-white transition-colors p-2 touch-target no-select"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {/* Mobile Navigation Overlay */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsMenuOpen(false)}
-          ></div>
+    <header className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
+      isScrolled ? 'py-3' : 'py-5'
+    }`}>
+      <div className="section-container">
+        <nav className={`relative flex items-center justify-between px-6 py-2.5 rounded-full transition-all duration-500 ${
+          isScrolled 
+            ? 'glass-card border-white/10 shadow-2xl shadow-black/40' 
+            : 'bg-transparent border-transparent'
+        }`}>
           
-          {/* Menu Panel */}
-          <div className="absolute top-14 sm:top-16 left-0 right-0 bg-slate-900/95 backdrop-blur-md border-b border-slate-700 shadow-2xl safe-top">
-            <div className="px-4 pt-4 pb-6 space-y-2">
-              {navigation.map((item) => {
-                const Icon = item.icon;
-                const isActive = location.pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`flex items-center w-full px-4 py-4 rounded-xl transition-all duration-300 touch-target ${
-                      isActive 
-                        ? 'bg-blue-500 text-white shadow-lg' 
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
-                    }`}
-                  >
-                    <Icon size={22} className="mr-4 flex-shrink-0" />
-                    <span className="font-medium">{item.name}</span>
-                  </Link>
-                );
-              })}
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center font-bold text-white shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform">
+              D
             </div>
+            <span className="font-mono font-bold text-lg text-white tracking-tighter hidden sm:block">
+              Dinesh<span className="text-cyan-400">Kingston</span>
+            </span>
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-1">
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.href}
+                to={item.href}
+                className={({ isActive }) => `
+                  px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300
+                  ${isActive 
+                    ? 'bg-cyan-500/10 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.1)]' 
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'}
+                `}
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </div>
+
+          {/* Action Button */}
+          <div className="hidden md:block">
+            <a 
+              href="/DineshKingston-Resume.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary py-2 px-5 text-sm"
+            >
+              Resume
+              <ArrowUpRight size={14} />
+            </a>
+          </div>
+
+          {/* Mobile Toggle */}
+          <button 
+            className="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-[-1] md:hidden transition-all duration-500 ${
+        isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-xl" />
+        <div className="relative h-full flex flex-col items-center justify-center gap-8">
+          {NAV_ITEMS.map((item, idx) => (
+            <NavLink
+              key={item.href}
+              to={item.href}
+              style={{ transitionDelay: `${idx * 50}ms` }}
+              className={({ isActive }) => `
+                text-2xl font-bold transition-all duration-300
+                ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
+                ${isActive ? 'text-cyan-400' : 'text-slate-500 hover:text-white'}
+              `}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+          <a 
+            href="/DineshKingston-Resume.pdf"
+            className={`mt-4 btn-primary transition-all duration-500 ${
+              isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+            }`}
+            style={{ transitionDelay: '350ms' }}
+          >
+            Download Resume
+          </a>
         </div>
-      )}
-    </>
+      </div>
+    </header>
   );
 };
 

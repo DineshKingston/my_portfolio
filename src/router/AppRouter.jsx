@@ -2,45 +2,46 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Skills from '../pages/Skills';
+import Experience from '../pages/Experience';
 import Projects from '../pages/Projects';
-import Resume from '../pages/Resume';
+import Education from '../pages/Education';
 import Contact from '../pages/Contact';
-import NotFound from '../pages/NotFound';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
-    errorElement: <NotFound />
   },
   {
-    path: "/about",
-    element: <About />
+    path: '/about',
+    element: <About />,
   },
   {
-    path: "/skills",
-    element: <Skills />
+    path: '/skills',
+    element: <Skills />,
   },
   {
-    path: "/projects",
-    element: <Projects />
+    path: '/experience',
+    element: <Experience />,
   },
   {
-    path: "/resume",
-    element: <Resume />
+    path: '/projects',
+    element: <Projects />,
   },
   {
-    path: "/contact",
-    element: <Contact />
+    path: '/education',
+    element: <Education />,
   },
   {
-    path: "*",
-    element: <NotFound />
-  }
+    path: '/contact',
+    element: <Contact />,
+  },
+  {
+    path: '*',
+    element: <Home />,
+  },
 ]);
 
-const AppRouter = () => {
-  return <RouterProvider router={router} />;
-};
+const AppRouter = () => <RouterProvider router={router} />;
 
 export default AppRouter;

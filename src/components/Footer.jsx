@@ -1,45 +1,63 @@
 import { portfolioData } from '../data/portfolioData';
-import { Github, Linkedin, Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const { personal, social } = portfolioData;
-  
-  const socialIcons = {
-    github: Github,
-    linkedin: Linkedin,
-    instagram: Instagram, 
-    facebook: Facebook,
-    discord: MessageCircle
-  };
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center">
-          <h3 className="text-xl font-bold gradient-text mb-4">
-            {personal.name}
-          </h3>
-          
-          <div className="flex justify-center space-x-6 mb-6">
-            {Object.entries(social).map(([platform, url]) => {
-              const Icon = socialIcons[platform];
-              return (
-                <a
-                  key={platform}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
-                >
-                  <Icon size={24} />
-                </a>
-              );
-            })}
+    <footer style={{
+      background: 'var(--bg-secondary)',
+      borderTop: '1px solid var(--border)',
+      padding: '2rem 0',
+    }}>
+      <div className="section-container">
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+        }}>
+          {/* Logo */}
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontWeight: 700,
+            fontSize: '1rem',
+            background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-blue))',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}>
+            DineshKingston<span style={{ color: 'var(--accent-cyan)', WebkitTextFillColor: 'var(--accent-cyan)' }}>.</span>
           </div>
 
-          <p className="text-slate-400 text-sm">
-            © {new Date().getFullYear()} {personal.name}. All rights reserved.
+          {/* Copyright */}
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textAlign: 'center', order: 3 }}>
+            © {year} {personal.name} · Built with React & ❤️
           </p>
+
+          {/* Social links */}
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            {[
+      { href: social.github, Icon: Github, label: 'GitHub' },
+      { href: social.linkedin, Icon: Linkedin, label: 'LinkedIn' },
+      { href: social.instagram, Icon: Instagram, label: 'Instagram' },
+      { href: social.email, Icon: Mail, label: 'Email' },
+            ].map(({ href, Icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={label === 'Email' ? undefined : '_blank'}
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="social-btn"
+                style={{ width: 36, height: 36 }}
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

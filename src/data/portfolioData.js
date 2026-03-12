@@ -1,123 +1,199 @@
 export const portfolioData = {
   personal: {
     name: "Dinesh Kingston S",
-    title: "Full Stack Developer & AI Enthusiast", 
+    firstName: "Dinesh",
+    title: "Student | Aspiring Full-Stack Developer",
+    roles: ["Full Stack Developer", "Backend Engineer", "AI Enthusiast", "Cloud & DevOps Learner"],
     email: "dineshkingston94@gmail.com",
     location: "Tirunelveli, Tamil Nadu",
-    bio: "A dedicated Computer Science student with hands-on experience in full-stack development and AI integration. Passionate about technology and eager to explore Machine Learning and Java Development."
+    bio: "Computer Science student and aspiring Full-Stack Developer with strong expertise in backend development using FastAPI and Spring Boot. Experienced in building secure REST APIs with MySQL, JWT authentication, and cloud deployment using AWS, Docker, and CI/CD pipelines. Developed scalable systems including a CSAT Analytics Platform and College Fee Payment System. Interested in backend architecture, cloud-native applications, and DevOps practices.",
+    shortBio: "Building scalable backend architectures and intelligent systems.",
+    availability: "Open to Opportunities",
+    stats: [
+      { label: "Projects", value: "5+" },
+      { label: "Technologies", value: "15+" },
+      { label: "CGPA", value: "8.5+" },
+      { label: "Experience", value: "Interned"},
+    ],
+    interests: ["Backend System Design", "Cloud Computing & Deployment", "DevOps & Automation", "AI & Machine Learning", "Learning New Technologies"]
   },
-  
+
   social: {
-    linkedin: "https://www.linkedin.com/in/dinesh-kingston-s-628031259/",
-    github: "https://github.com/DineshKingston", 
+    linkedin: "https://www.linkedin.com/in/dinesh-kingston-s-628031259",
+    github: "https://www.github.com/DineshKingston",
+    email: "mailto:dineshkingston94@gmail.com",
     instagram: "https://www.instagram.com/_b_lank.heart_dinesh_21/",
-    facebook: "https://www.facebook.com/dinesh.221204/",
-    discord: "https://discord.com/channels/dinesh_86507"
   },
-  
+
   skills: {
-    frontend: ["HTML", "CSS", "JavaScript", "React.js", "Tailwind CSS"],
-    backend: ["Java", "Spring Boot", "Node.js", "Python"],
-    database: ["MySQL", "MongoDB"],
-    languages: ["C", "Java", "Python"],
-    tools: ["Git", "GitHub", "VS Code", "Postman", "Docker"]
+    frontend: [
+      { name: "ReactJS", level: 85 },
+      { name: "JavaScript (ES6+)", level: 82 },
+      { name: "HTML5/CSS3", level: 90 },
+      { name: "Tailwind CSS", level: 88 },
+    ],
+    backend: [
+      { name: "Spring Boot", level: 80 },
+      { name: "FastAPI", level: 85 },
+      { name: "Django", level: 75 },
+      { name: "Node.js", level: 70 },
+      { name: "RESTful API Design", level: 90 },
+      { name: "JWT Authentication", level: 85 },
+    ],
+    database: [
+      { name: "MySQL", level: 85 },
+      { name: "MongoDB", level: 75 },
+      { name: "PostgreSQL", level: 78 },
+    ],
+    cloudDevops: [
+      { name: "AWS (EC2, ECR, Lambda)", level: 75 },
+      { name: "Docker", level: 80 },
+      { name: "Nginx", level: 65 },
+      { name: "GitHub CI/CD", level: 70 },
+      { name: "Postman", level: 90 },
+    ],
+    languages: ["Java", "Python", "SQL", "C"],
+    tools: ["IntelliJ IDEA", "Eclipse", "Git/GitHub", "Postman", "Visual Studio Code"]
   },
-  
+
+  experience: [
+    {
+      id: 1,
+      company: "IPCS Global",
+      role: "Backend Developer Intern",
+      type: "Internship",
+      duration: "2024",
+      location: "Tamil Nadu, India",
+      description: "Developed a Django-based web application for managing bike rentals and ride bookings with user authentication and real-time ride tracking during my internship at IPCS Global.",
+      responsibilities: [
+        "Built bike rental management system using Django",
+        "Implemented secure user authentication and profile management",
+        "Integreated real-time ride tracking functionality",
+        "Collaborated on backend architecture for rental workflows"
+      ],
+      technologies: ["Django", "Python", "MySQL", "JavaScript"],
+      color: "cyan"
+    },
+    {
+      id: 2,
+      company: "Skill Rank Company",
+      role: "Full Stack trainee",
+      type: "Training",
+      duration: "2024",
+      location: "Remote",
+      description: "Finished training where I built a Multi-Document AI Assistant with React, MongoDB, Spring Boot, and Gemini API.",
+      responsibilities: [
+        "Built Multi-Document AI Assistant",
+        "Implemented session management and chat history restoration",
+        "Integrated Gemini API for natural language processing",
+        "Developed keyword search highlighting"
+      ],
+      technologies: ["React", "MongoDB", "Spring Boot", "Gemini API"],
+      color: "purple"
+    }
+  ],
+
   projects: [
     {
       id: 1,
-      title: "Document Read AI Agent",
-      description: "An advanced AI-powered document processing application built with React frontend and Spring Boot backend. Features intelligent document analysis, search functionality, and multi-format file support (PDF, DOCX, TXT) using Google's Gemini AI API for natural language processing and document understanding.",
-      technologies: ["React.js", "Spring Boot", "MongoDB", "Gemini AI API", "Java", "JavaScript", "REST API"],
+      title: "Client Pulse – CSAT Analytics System",
+      description: "Production-ready backend API to collect and manage customer feedback. Features admin analytics dashboard, reporting APIs, and AWS integration.",
+      technologies: ["FastAPI", "MySQL", "JWT", "AWS S3", "Docker", "AWS ECR", "AWS EC2", "Nginx", "CI/CD"],
       features: [
-        "Multi-file document upload (PDF, DOCX, TXT)",
-        "AI-powered document analysis and summarization",
-        "Advanced search with highlighting functionality", 
-        "Session management and document history",
-        "Natural language query processing",
-        "Real-time document processing status"
+        "Secure JWT authentication",
+        "Admin analytics dashboard",
+        "AWS S3 integration for screenshot storage",
+        "CSV/Excel report exports",
+        "Containerized with Docker & deployed on AWS"
       ],
-      github: "https://github.com/DineshKingston/document-ai-agent",
+      github: "https://www.github.com/DineshKingston",
       demo: "#",
-      status: "Completed",
-      category: "AI/ML"
+      status: "Production Ready",
+      category: "Backend/Cloud",
+      gradient: "from-blue-600 to-cyan-500"
     },
     {
-      id: 2, 
-      title: "ML Multiple Disease Prediction",
-      description: "A comprehensive machine learning project that predicts multiple diseases based on symptoms and medical parameters using various ML algorithms including Random Forest, SVM, and Neural Networks.",
-      technologies: ["Python", "Machine Learning", "Scikit-learn", "Flask", "Pandas", "NumPy", "Matplotlib"],
+      id: 2,
+      title: "Multi-Document AI Assistant",
+      description: "Comprehensive document processing system for analysis and Q&A using Gemini AI and Spring Boot.",
+      technologies: ["React", "Spring Boot", "MongoDB", "Gemini API", "Java"],
       features: [
-        "Multi-disease prediction system",
-        "Symptom-based diagnosis",
-        "Machine learning model comparison",
-        "Interactive web interface",
-        "Data visualization and analytics"
+        "Multi-file upload (PDF/DOCX/TXT)",
+        "Keyword search highlighting",
+        "AI-powered Q&A",
+        "Session management & chat history restoration"
       ],
-      github: "https://github.com/DineshKingston/disease-prediction-ml",
+      github: "https://www.github.com/DineshKingston",
       demo: "#",
       status: "Completed",
-      category: "AI/ML"
+      category: "AI/ML",
+      gradient: "from-violet-500 to-purple-600"
     },
     {
       id: 3,
-      title: "Object Detection Using Raspberry Pi", 
-      description: "Real-time object detection system using Raspberry Pi and OpenCV to identify humans, bottles, and specific objects with YOLO/TensorFlow integration for efficient recognition in low-power environments.",
-      technologies: ["Python", "OpenCV", "Raspberry Pi", "YOLO", "TensorFlow", "Computer Vision"],
+      title: "Online College Fees Payment System",
+      description: "Full-stack web application featuring admin/student panels and Razorpay integration.",
+      technologies: ["React Vite", "Tailwind", "Spring Boot", "MySQL", "Razorpay", "JWT"],
       features: [
-        "Real-time object detection",
-        "Multi-object recognition (humans, bottles, etc.)",
-        "Low-power optimization for Raspberry Pi",
-        "Pre-trained model integration",
-        "Live camera feed processing"
+        "Admin and Student panels",
+        "Secure JWT authentication",
+        "Razorpay payment integration",
+        "PDF receipt generation"
       ],
-      github: "https://github.com/DineshKingston/raspberry-pi-object-detection",
+      github: "https://www.github.com/DineshKingston",
       demo: "#",
       status: "Completed",
-      category: "IoT"
+      category: "FinTech",
+      gradient: "from-orange-500 to-amber-500"
     },
     {
       id: 4,
-      title: "Online Fees Payment System",
-      description: "A secure online fee payment system with comprehensive admin and student portals. Features JWT authentication, Razorpay integration, and MySQL database for managing college fee structures and payment processing.",
-      technologies: ["React.js", "Spring Boot", "MySQL", "Razorpay API", "JWT", "HTML/CSS"],
+      title: "Object Detection — Raspberry Pi",
+      description: "Real-time object detection system using Raspberry Pi and OpenCV to identify humans and objects.",
+      technologies: ["Python", "OpenCV", "Raspberry Pi", "YOLO", "TensorFlow"],
       features: [
-        "Admin dashboard for fee management",
-        "Student portal for payments",
-        "Secure payment gateway integration",
-        "JWT-based authentication",
-        "Payment history and receipts",
-        "Responsive design"
+        "Real-time object detection",
+        "YOLO/TensorFlow integration",
+        "Optimized for low-power environments"
       ],
-      github: "https://github.com/DineshKingston/online-fees-payment",
+      github: "https://www.github.com/DineshKingston",
       demo: "#",
       status: "Completed",
-      category: "Web Development"
-    },
-    {
-      id: 5,
-      title: "Voice Recognition System",
-      description: "A web-based voice recognition system using HTML, CSS, and JavaScript to capture and process voice commands with real-time speech-to-text functionality and interactive UI elements.",
-      technologies: ["HTML", "CSS", "JavaScript", "Web Speech API", "Voice Recognition"],
-      features: [
-        "Real-time speech-to-text conversion",
-        "Voice command processing",
-        "Interactive UI with visual feedback",
-        "Cross-browser compatibility",
-        "Responsive design"
-      ],
-      github: "https://github.com/DineshKingston/voice-recognition-system",
-      demo: "#",
-      status: "Completed",
-      category: "Web Development"
+      category: "IoT",
+      gradient: "from-emerald-500 to-teal-600"
     }
   ],
-  
-  education: {
-    degree: "Bachelor of Technology",
-    field: "Computer Science and Business System", 
-    college: "Francis Xavier Engineering College",
-    duration: "2022 - 2026",
-    grade: "Pursuing"
-  }
+
+  education: [
+    {
+      id: 1,
+      degree: "Bachelor of Technology",
+      field: "Computer Science and Business Systems",
+      college: "Francis Xavier Engineering College",
+      location: "Tirunelveli, Tamil Nadu",
+      duration: "2022 - 2026",
+      status: "Pursuing",
+      icon: "🎓"
+    }
+  ],
+
+  certifications: [
+    {
+      title: "MERN Stack - 30 Days Training",
+      issuer: "Skill Rank Company",
+      year: "2024",
+      icon: "💻"
+    },
+    {
+      title: "AI & Full Stack Development",
+      issuer: "Pantech Prolabs India",
+      year: "2024",
+      icon: "🤖"
+    }
+  ],
+
+  languages: [
+    { name: "English", level: "Professional" },
+    { name: "Tamil", level: "Native" }
+  ]
 };
