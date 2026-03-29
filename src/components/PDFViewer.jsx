@@ -16,11 +16,11 @@ const PDFViewer = () => {
   return (
     <div className="bg-slate-800 rounded-xl p-8 animate-slide-up">
       <div className="text-center mb-8">
-        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-          <FileText size={32} className="text-white" />
+        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-full flex items-center justify-center mx-auto mb-4">
+          <FileText size={32} className="text-slate-900" />
         </div>
-        <h2 className="text-2xl font-bold text-slate-100 mb-2">My Resume</h2>
-        <p className="text-slate-400">Download or view my complete resume</p>
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">My Resume</h2>
+        <p className="text-slate-500">Download or view my complete resume</p>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -50,11 +50,11 @@ const PDFViewer = () => {
       </div>
 
       {showPDF && (
-        <div className="bg-slate-900 rounded-lg p-4 animate-fade-in">
+        <div className="bg-white rounded-lg p-4 animate-fade-in">
           <div className="aspect-[8.5/11] w-full max-w-4xl mx-auto">
             <iframe
               src="/DineshKingston-Resume.pdf"
-              className="w-full h-full rounded border-2 border-blue-500/20"
+              className="w-full h-full rounded border-2 border-violet-500/20"
               title="Resume Preview"
             />
           </div>

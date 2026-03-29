@@ -30,72 +30,48 @@ const Education = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gap: '2rem', gridTemplateColumns: '1fr' }} className="education-grid">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 education-grid">
 
           {/* Education cards */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div className="flex flex-col gap-6">
             {education.map((edu, i) => (
               <div
                 key={edu.id}
-                className="reveal-left glass-card"
-                style={{
-                  padding: '2rem',
-                  transitionDelay: `${i * 0.1}s`,
-                }}
+                className="reveal-left bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-6 sm:p-8"
+                style={{ transitionDelay: `${i * 0.1}s` }}
               >
                 {/* Icon + Degree */}
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
-                  <div style={{
-                    width: 52,
-                    height: 52,
-                    borderRadius: 14,
-                    background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-blue))',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    boxShadow: 'var(--glow-cyan)',
-                    fontSize: '1.4rem',
-                  }}>
+                <div className="flex gap-4 items-start mb-5">
+                  <div className="w-[52px] h-[52px] rounded-2xl bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center flex-shrink-0 shadow-[var(--glow-cyan)] text-2xl text-slate-900">
                     {edu.icon}
                   </div>
                   <div>
-                    <div style={{
-                      display: 'inline-block',
-                      padding: '0.2rem 0.65rem',
-                      background: 'rgba(16,185,129,0.1)',
-                      border: '1px solid rgba(16,185,129,0.25)',
-                      borderRadius: 100,
-                      fontSize: '0.7rem',
-                      fontWeight: 600,
-                      color: 'var(--accent-emerald)',
-                      marginBottom: '0.4rem',
-                    }}>
+                    <div className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-[0.7rem] font-bold text-emerald-400 mb-2">
                       {edu.status}
                     </div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.3 }}>
+                    <h3 className="text-lg sm:text-[1.1rem] font-bold text-[var(--text-primary)] leading-snug">
                       {edu.degree}
                     </h3>
-                    <p className="gradient-text-cyan" style={{ fontWeight: 600, fontSize: '0.9rem' }}>
+                    <p className="gradient-text-crown font-semibold text-sm sm:text-[0.9rem] mt-1">
                       {edu.field}
                     </p>
                   </div>
                 </div>
 
                 {/* Info row */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', paddingTop: '1rem', borderTop: '1px solid var(--border)' }}>
-                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontWeight: 500 }}>
+                <div className="flex flex-col gap-2 pt-4 border-t border-[var(--border)]">
+                  <div className="text-[var(--text-secondary)] text-sm font-medium">
                     {edu.college}
                   </div>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>
+                  <div className="text-[var(--text-muted)] text-[0.82rem]">
                     {edu.university}
                   </div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '0.25rem' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-                      <Calendar size={13} /> {edu.duration}
+                  <div className="flex flex-wrap gap-4 mt-1">
+                    <span className="flex items-center gap-2 text-[var(--text-muted)] text-xs sm:text-[0.8rem]">
+                      <Calendar size={13} className="text-blue-600" /> {edu.duration}
                     </span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-                      <MapPin size={13} /> {edu.location}
+                    <span className="flex items-center gap-2 text-[var(--text-muted)] text-xs sm:text-[0.8rem]">
+                      <MapPin size={13} className="text-blue-600" /> {edu.location}
                     </span>
                   </div>
                 </div>
@@ -104,48 +80,20 @@ const Education = () => {
 
             {/* Certifications */}
             <div className="reveal-left" style={{ transitionDelay: '0.2s' }}>
-              <div style={{
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '1.5rem',
-              }}>
-                <h3 style={{
-                  fontSize: '0.85rem',
-                  fontWeight: 700,
-                  color: 'var(--text-muted)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  marginBottom: '1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                }}>
+              <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-6">
+                <h3 className="text-[0.85rem] font-bold text-[var(--text-muted)] uppercase tracking-wider mb-4 flex items-center gap-2">
                   <Award size={14} />
                   Certifications & Training
                 </h3>
                 {certifications.map((cert) => (
-                  <div key={cert.title} style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '0.75rem',
-                    background: 'rgba(249,115,22,0.06)',
-                    border: '1px solid rgba(249,115,22,0.15)',
-                    borderRadius: 'var(--radius-sm)',
-                  }}>
+                  <div key={cert.title} className="flex justify-between items-center p-3 mb-2 bg-orange-500/5 border border-orange-500/10 rounded-lg">
                     <div>
-                      <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>
+                      <div className="font-semibold text-sm sm:text-[0.9rem] text-[var(--text-primary)]">
                         {cert.icon} {cert.title}
                       </div>
-                      <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{cert.issuer}</div>
+                      <div className="text-[0.78rem] text-[var(--text-muted)]">{cert.issuer}</div>
                     </div>
-                    <span style={{
-                      fontSize: '0.75rem',
-                      fontFamily: 'var(--font-mono)',
-                      color: '#fb923c',
-                      fontWeight: 600,
-                    }}>
+                    <span className="text-xs font-mono text-orange-400 font-bold bg-orange-500/10 px-2 py-1 rounded">
                       {cert.year}
                     </span>
                   </div>
@@ -156,64 +104,29 @@ const Education = () => {
 
           {/* Languages panel */}
           <div className="reveal-right" style={{ transitionDelay: '0.2s' }}>
-            <div style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.75rem',
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.5rem',
-            }}>
-              <h3 style={{
-                fontSize: '0.85rem',
-                fontWeight: 700,
-                color: 'var(--text-muted)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.08em',
-              }}>
+            <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-6 sm:p-8 h-full flex flex-col gap-6">
+              <h3 className="text-[0.85rem] font-bold text-[var(--text-muted)] uppercase tracking-wider">
                 Languages
               </h3>
 
-              {languages.map(({ name, level }) => (
-                <div key={name}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{name}</span>
-                    <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>{level}</span>
-                  </div>
-                  <div className="skill-bar-track">
-                    <div
-                      className="skill-bar-fill"
-                      style={{ width: level === 'Native' ? '100%' : '85%' }}
-                    />
-                  </div>
-                </div>
-              ))}
-
-              {/* Quick facts */}
-              <div style={{
-                marginTop: 'auto',
-                padding: '1.25rem',
-                background: 'rgba(0,212,255,0.03)',
-                border: '1px solid rgba(0,212,255,0.1)',
-                borderRadius: 'var(--radius-md)',
-              }}>
-                <h4 style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '0.75rem' }}>
-                  Quick Facts
-                </h4>
-                {[
-                  ['🎓', 'B.Tech CSE student (2022–2026)'],
-                  ['📍', 'Tirunelveli, Tamil Nadu'],
-                  ['💼', 'Open to full-time & internship roles'],
-                  ['🚀', 'Always learning something new'],
-                ].map(([icon, text]) => (
-                  <div key={text} style={{ display: 'flex', gap: '0.6rem', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                    <span>{icon}</span>
-                    <span>{text}</span>
+              <div className="space-y-4">
+                {languages.map(({ name, level }) => (
+                  <div key={name}>
+                    <div className="flex justify-between mb-2">
+                      <span className="text-[var(--text-primary)] font-medium text-sm sm:text-base">{name}</span>
+                      <span className="text-[var(--text-muted)] text-[0.82rem]">{level}</span>
+                    </div>
+                    <div className="skill-bar-track">
+                      <div
+                        className="skill-bar-fill"
+                        style={{ width: level === 'Native' ? '100%' : '85%' }}
+                      />
+                    </div>
                   </div>
                 ))}
               </div>
+
+
             </div>
           </div>
         </div>

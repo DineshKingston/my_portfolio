@@ -52,7 +52,7 @@ const Resume = () => {
               <ul className="space-y-2 text-slate-300">
                 <li>• Object Detection Using Raspberry Pi with YOLO/TensorFlow</li>
                 <li>• Voice Recognition System with real-time speech-to-text</li>
-                <li>• Online Fees Payment System with secure payment gateway</li>
+                <li>• Velozity: Multi-Tenant SaaS API with rate limiting and audit trails</li>
                 <li>• Document Read AI Agent (Latest Project)</li>
                 <li>• ML Multiple Disease Prediction System</li>
               </ul>

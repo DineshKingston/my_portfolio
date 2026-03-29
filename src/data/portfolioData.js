@@ -6,7 +6,7 @@ export const portfolioData = {
     roles: ["Full Stack Developer", "Backend Engineer", "AI Enthusiast", "Cloud & DevOps Learner"],
     email: "dineshkingston94@gmail.com",
     location: "Tirunelveli, Tamil Nadu",
-    bio: "Computer Science student and aspiring Full-Stack Developer with strong expertise in backend development using FastAPI and Spring Boot. Experienced in building secure REST APIs with MySQL, JWT authentication, and cloud deployment using AWS, Docker, and CI/CD pipelines. Developed scalable systems including a CSAT Analytics Platform and College Fee Payment System. Interested in backend architecture, cloud-native applications, and DevOps practices.",
+    bio: "Computer Science student and aspiring Full-Stack Developer with strong expertise in backend development using FastAPI and Spring Boot. Experienced in building secure REST APIs with MySQL, JWT authentication, and cloud deployment using AWS, Docker, and CI/CD pipelines. Developed scalable systems including a CSAT Analytics Platform and Velozity Multi-Tenant API. Interested in backend architecture, cloud-native applications, and DevOps practices.",
     shortBio: "Building scalable backend architectures and intelligent systems.",
     availability: "Open to Opportunities",
     stats: [
@@ -22,7 +22,7 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/dinesh-kingston-s-628031259",
     github: "https://www.github.com/DineshKingston",
     email: "mailto:dineshkingston94@gmail.com",
-    instagram: "https://www.instagram.com/_b_lank.heart_dinesh_21/",
+    instagram: "https://www.instagram.com/_b_lank_heart_dinesh_21/",
   },
 
   skills: {
@@ -131,19 +131,19 @@ export const portfolioData = {
     },
     {
       id: 3,
-      title: "Online College Fees Payment System",
-      description: "Full-stack web application featuring admin/student panels and Razorpay integration.",
-      technologies: ["React Vite", "Tailwind", "Spring Boot", "MySQL", "Razorpay", "JWT"],
+      title: "Velozity: Production-Grade Multi-Tenant API",
+      description: "High-performance REST API built for modern B2B SaaS platforms with strict tenant isolation, cryptographic audit trails, and intelligent rate limiting.",
+      technologies: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "Redis", "BullMQ"],
       features: [
-        "Admin and Student panels",
-        "Secure JWT authentication",
-        "Razorpay payment integration",
-        "PDF receipt generation"
+        "Absolute Tenant Isolation (Fail-Closed)",
+        "Intelligent Rate Limiting (Sliding Window)",
+        "Tamper-Evident Audit Trail (SHA-256)",
+        "Resilient Email Engine (BullMQ)"
       ],
-      github: "https://www.github.com/DineshKingston",
+      github: "https://github.com/DineshKingston/VeloZity_Saas.git",
       demo: "#",
       status: "Completed",
-      category: "FinTech",
+      category: "Backend/SaaS",
       gradient: "from-orange-500 to-amber-500"
     },
     {

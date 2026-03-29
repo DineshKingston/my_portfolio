@@ -12,13 +12,7 @@ const Footer = () => {
       padding: '2rem 0',
     }}>
       <div className="section-container">
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '1rem',
-        }}>
+        <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-6">
           {/* Logo */}
           <div style={{
             fontFamily: 'var(--font-mono)',
@@ -40,10 +34,10 @@ const Footer = () => {
           {/* Social links */}
           <div style={{ display: 'flex', gap: '0.5rem' }}>
             {[
-      { href: social.github, Icon: Github, label: 'GitHub' },
-      { href: social.linkedin, Icon: Linkedin, label: 'LinkedIn' },
-      { href: social.instagram, Icon: Instagram, label: 'Instagram' },
-      { href: social.email, Icon: Mail, label: 'Email' },
+              { href: social.github, Icon: Github, label: 'GitHub' },
+              { href: social.linkedin, Icon: Linkedin, label: 'LinkedIn' },
+              { href: social.instagram, Icon: Instagram, label: 'Instagram' },
+              { href: social.email, Icon: Mail, label: 'Email' },
             ].map(({ href, Icon, label }) => (
               <a
                 key={label}

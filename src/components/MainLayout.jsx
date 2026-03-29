@@ -1,5 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
+import BotMascot from './BotMascot';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -17,10 +18,13 @@ const MainLayout = ({ children }) => {
       <main className="flex-grow relative">
         {/* Background Mesh */}
         <div className="mesh-bg fixed inset-0 z-[-1]" />
-        
+
         {children}
       </main>
       <Footer />
+
+      {/* Interactive Mascot */}
+      <BotMascot />
     </div>
   );
 };

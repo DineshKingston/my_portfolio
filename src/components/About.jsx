@@ -31,26 +31,53 @@ const About = () => {
         </div>
 
         {/* Layout: Info left, Image right */}
-        <div className="grid lg:grid-cols-[1.3fr_0.7fr] gap-12 items-center mb-16 about-grid">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-center mb-16 about-grid">
 
           {/* Left — content */}
           <div className="reveal-left space-y-6">
-            <div className="glass-card p-8 border-white/5 bg-slate-900/40 relative">
-              <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-cyan-500/30 rounded-tl-xl" />
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1rem', marginBottom: '1.25rem' }}>
-                {personal.bio}
-              </p>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1rem', marginBottom: '1.25rem' }}>
-                I specialize in building modern web applications using React, Spring Boot, and FastAPI. My passion lies in crafting efficient, scalable backend systems while delivering intuitive frontend experiences.
-              </p>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1rem' }}>
-                From AI-powered document agents to real-time IoT systems with Raspberry Pi — I enjoy working across the full stack and exploring new frontiers in technology.
-              </p>
+            <div className="flex flex-col gap-5 relative group">
+              {/* Connecting glowing line */}
+              <div className="absolute left-[20px] sm:left-[24px] top-6 bottom-6 w-[2px] bg-gradient-to-b from-blue-600/80 via-violet-500/40 to-transparent shadow-[0_0_10px_rgba(34,211,238,0.5)] z-0" />
+              
+              {/* Overview / Bio block */}
+              <div className="relative pl-[54px] sm:pl-[64px] z-10 transition-transform duration-300 hover:translate-x-1">
+                {/* Node */}
+                <div className="absolute left-[14px] sm:left-[18px] top-5 w-[14px] h-[14px] rounded-full bg-white border-[3px] border-blue-500 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                <div className="glass-card p-5 border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-lg">
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-[0.95rem] sm:text-base">
+                    {personal.bio}
+                  </p>
+                </div>
+              </div>
+
+              {/* Stack block */}
+              <div className="relative pl-[54px] sm:pl-[64px] z-10 transition-transform duration-300 hover:translate-x-1">
+                {/* Node */}
+                <div className="absolute left-[14px] sm:left-[18px] top-5 w-[14px] h-[14px] rounded-full bg-white border-[3px] border-violet-500 shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+                <div className="glass-card p-5 border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-lg flex gap-4 items-start">
+                  <Code2 size={24} className="text-violet-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-[0.95rem] sm:text-base">
+                    I specialize in building modern web applications using <span className="text-slate-900 font-medium">React, Spring Boot, and FastAPI</span>. My passion lies in crafting efficient, scalable backend systems while delivering intuitive frontend experiences.
+                  </p>
+                </div>
+              </div>
+
+              {/* IoT / AI block */}
+              <div className="relative pl-[54px] sm:pl-[64px] z-10 transition-transform duration-300 hover:translate-x-1">
+                {/* Node */}
+                <div className="absolute left-[14px] sm:left-[18px] top-5 w-[14px] h-[14px] rounded-full bg-white border-[3px] border-violet-500 shadow-[0_0_10px_rgba(168,85,247,0.6)]" />
+                <div className="glass-card p-5 border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-lg flex gap-4 items-start">
+                  <Cpu size={24} className="text-violet-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-[0.95rem] sm:text-base">
+                    From AI-powered document agents to real-time IoT systems with Raspberry Pi — I enjoy working across the full stack and exploring new frontiers in technology.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-6">
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                <MapPin size={20} className="text-cyan-400" />
+            <div className="flex flex-wrap items-center gap-6 pt-2 pl-[54px] sm:pl-[64px]">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-blue-600/10 border border-blue-500/20 rounded-full text-blue-600 text-sm font-semibold shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                <MapPin size={16} />
                 {personal.location}
               </div>
             </div>
@@ -58,28 +85,28 @@ const About = () => {
 
           {/* Right — Image */}
           <div className="reveal-right flex justify-center">
-             <div className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity" />
-                <div className="relative w-72 h-85 rounded-[2rem] overflow-hidden border-2 border-white/5 shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]">
-                  <img 
-                    src="/dinesh-photo.jpg" 
-                    alt="Dinesh Kingston S" 
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 hover:scale-110"
-                    onError={(e) => {
-                      e.target.src = "https://api.dicebear.com/7.x/avataaars/svg?seed=Dinesh";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60" />
-                </div>
-             </div>
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-[2.5rem] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity" />
+              <div className="relative w-72 h-85 rounded-[2rem] overflow-hidden border-2 border-slate-200 shadow-2xl transition-transform duration-500 group-hover:scale-[1.03]">
+                <img
+                  src="/dinesh-photo.jpg"
+                  alt="Dinesh Kingston S"
+                  className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 hover:scale-110"
+                  onError={(e) => {
+                    e.target.src = "https://api.dicebear.com/7.x/avataaars/svg?seed=Dinesh";
+                  }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60" />
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom Stats Grid */}
         <div className="reveal grid grid-cols-2 md:grid-cols-4 gap-4">
           {personal.stats.map(({ label, value }) => (
-            <div key={label} className="stat-card p-5 border-white/5">
-              <div style={{ fontSize: '1.8rem', fontWeight: 800 }} className="gradient-text-cyan font-mono mb-1">
+            <div key={label} className="stat-card p-5 border-slate-200">
+              <div style={{ fontSize: '1.8rem', fontWeight: 800 }} className="gradient-text-crown font-mono mb-1">
                 {value}
               </div>
               <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
@@ -90,13 +117,13 @@ const About = () => {
         </div>
 
         {/* Interests */}
-        <div className="reveal mt-12 bg-slate-900/50 p-8 rounded-3xl border border-white/5">
-          <h3 className="text-white font-bold mb-6 text-xl">Interests & Focus Areas</h3>
+        <div className="reveal mt-12 bg-slate-50 border-slate-200 p-8 rounded-3xl border border-slate-200">
+          <h3 className="text-slate-900 font-bold mb-6 text-xl">Interests & Focus Areas</h3>
           <div className="flex flex-wrap gap-3">
             {personal.interests.map((interest) => (
               <span
                 key={interest}
-                className="px-5 py-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-300 text-sm font-medium hover:bg-cyan-500/10 transition-colors"
+                className="px-5 py-2 rounded-full border border-blue-500/20 bg-blue-600/5 text-blue-600 text-sm font-medium hover:bg-blue-600/10 transition-colors"
               >
                 {interest}
               </span>
@@ -107,7 +134,7 @@ const About = () => {
 
       <style>{`
         @media (min-width: 900px) {
-          .about-grid { grid-template-columns: 1.3fr 0.7fr !important; }
+          .about-grid { display: grid !important; grid-template-columns: 1.3fr 0.7fr !important; }
         }
       `}</style>
     </section>

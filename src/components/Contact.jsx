@@ -8,18 +8,18 @@ const SOCIAL_CARDS = [
     label: 'GitHub',
     username: 'DineshKingston',
     icon: Github,
-    color: '#f0f6ff',
-    bg: 'rgba(240,246,255,0.05)',
-    border: 'rgba(240,246,255,0.1)',
-    hoverBg: 'rgba(240,246,255,0.09)',
-    hoverBorder: 'rgba(240,246,255,0.2)',
+    color: '#0F172A',
+    bg: 'rgba(15,23,42,0.05)',
+    border: 'rgba(15,23,42,0.1)',
+    hoverBg: 'rgba(15,23,42,0.09)',
+    hoverBorder: 'rgba(15,23,42,0.2)',
   },
   {
     key: 'linkedin',
     label: 'LinkedIn',
     username: 'dinesh-kingston-s',
     icon: Linkedin,
-    color: '#0ea5e9',
+    color: '#2563EB',
     bg: 'rgba(14,165,233,0.06)',
     border: 'rgba(14,165,233,0.15)',
     hoverBg: 'rgba(14,165,233,0.12)',
@@ -30,7 +30,7 @@ const SOCIAL_CARDS = [
     label: 'Email',
     username: 'dineshkingston94@gmail.com',
     icon: Mail,
-    color: '#00d4ff',
+    color: '#3B82F6',
     bg: 'rgba(0,212,255,0.05)',
     border: 'rgba(0,212,255,0.15)',
     hoverBg: 'rgba(0,212,255,0.1)',
@@ -39,9 +39,9 @@ const SOCIAL_CARDS = [
   {
     key: 'instagram',
     label: 'Instagram',
-    username: '_b_lank.heart_dinesh_21',
+    username: '_b_lank_heart_dinesh_21',
     icon: Instagram,
-    color: '#ec4899',
+    color: '#7C3AED',
     bg: 'rgba(236,72,153,0.05)',
     border: 'rgba(236,72,153,0.15)',
     hoverBg: 'rgba(236,72,153,0.1)',
@@ -77,10 +77,10 @@ const Contact = () => {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gap: '2.5rem', gridTemplateColumns: '1fr', alignItems: 'start', maxWidth: 900, margin: '0 auto' }} className="contact-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start max-w-[900px] mx-auto contact-grid">
 
           {/* Left — social cards */}
-          <div className="reveal-left" style={{ display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+          <div className="reveal-left flex flex-col gap-3.5">
             <h3 style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.25rem' }}>
               Find Me On
             </h3>
@@ -93,57 +93,32 @@ const Contact = () => {
                   href={href}
                   target={key === 'email' ? undefined : '_blank'}
                   rel="noopener noreferrer"
+                  className="flex items-center gap-4 px-5 py-4 rounded-[var(--radius-md)] no-underline transition-all duration-300 cursor-pointer text-inherit group"
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '1rem',
-                    padding: '1rem 1.25rem',
                     background: bg,
                     border: `1px solid ${border}`,
-                    borderRadius: 'var(--radius-md)',
-                    textDecoration: 'none',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer',
-                    color: 'inherit',
                   }}
                   onMouseEnter={e => {
                     e.currentTarget.style.background = hoverBg;
                     e.currentTarget.style.borderColor = hoverBorder;
-                    e.currentTarget.style.transform = 'translateX(6px)';
                   }}
                   onMouseLeave={e => {
                     e.currentTarget.style.background = bg;
                     e.currentTarget.style.borderColor = border;
-                    e.currentTarget.style.transform = '';
                   }}
                 >
-                  <div style={{
-                    width: 42,
-                    height: 42,
-                    borderRadius: 10,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    background: `${color}15`,
-                    flexShrink: 0,
-                  }}>
+                  <div className="w-[42px] h-[42px] rounded-xl flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-110" style={{ background: `${color}15` }}>
                     <Icon size={20} style={{ color }} />
                   </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)', marginBottom: '0.15rem' }}>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-[0.9rem] text-[var(--text-primary)] mb-0.5">
                       {label}
                     </div>
-                    <div style={{
-                      fontSize: '0.78rem',
-                      color: 'var(--text-muted)',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      whiteSpace: 'nowrap',
-                    }}>
+                    <div className="text-[0.78rem] text-[var(--text-muted)] truncate whitespace-nowrap">
                       {username}
                     </div>
                   </div>
-                  <Send size={14} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
+                  <Send size={14} className="text-[var(--text-muted)] flex-shrink-0 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </a>
               );
             })}
@@ -151,14 +126,7 @@ const Contact = () => {
 
           {/* Right — info card */}
           <div className="reveal-right">
-            <div style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--radius-xl)',
-              padding: '2rem',
-              position: 'relative',
-              overflow: 'hidden',
-            }}>
+            <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--radius-xl)] p-6 sm:p-8 relative overflow-hidden group">
               {/* Glow blob */}
               <div style={{
                 position: 'absolute',
@@ -171,25 +139,25 @@ const Contact = () => {
                 pointerEvents: 'none',
               }} />
 
-              <div className="availability-badge" style={{ marginBottom: '1.5rem' }}>
+              <div className="availability-badge mb-6">
                 {personal.availability}
               </div>
 
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
-                Ready to <span className="gradient-text-cyan">collaborate?</span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-[var(--text-primary)] mb-3">
+                Ready to <span className="gradient-text-crown">collaborate?</span>
               </h3>
 
-              <p style={{ color: 'var(--text-secondary)', lineHeight: 1.75, marginBottom: '1.75rem', fontSize: '0.95rem' }}>
+              <p className="text-[var(--text-secondary)] leading-relaxed mb-6 text-sm sm:text-[0.95rem]">
                 I'm currently open to full-time developer roles and exciting internship opportunities. Whether you have a project in mind or just want to chat about tech, I'd love to hear from you!
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                  <Mail size={15} style={{ color: 'var(--accent-cyan)', flexShrink: 0 }} />
+              <div className="flex flex-col gap-3 mb-8">
+                <div className="flex items-center gap-2 text-[var(--text-secondary)] text-sm sm:text-[0.9rem]">
+                  <Mail size={15} className="text-blue-600 flex-shrink-0" />
                   {personal.email}
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-                  <MapPin size={15} style={{ color: 'var(--accent-cyan)', flexShrink: 0 }} />
+                <div className="flex items-center gap-2 text-[var(--text-secondary)] text-sm sm:text-[0.9rem]">
+                  <MapPin size={15} className="text-blue-600 flex-shrink-0" />
                   {personal.location}
                 </div>
               </div>
@@ -208,9 +176,7 @@ const Contact = () => {
       </div>
 
       <style>{`
-        @media (min-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr 1fr !important; }
-        }
+        /* Media query removed since tailwind md:grid-cols-2 handles the tablet/desktop columns */
       `}</style>
     </section>
   );

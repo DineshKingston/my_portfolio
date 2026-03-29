@@ -16,7 +16,7 @@ const ProjectCard = ({ project }) => {
     >
       {/* Card top color bar */}
       <div style={{
-        background: `linear-gradient(135deg, ${gradient.split('from-')[1]?.split(' ')[0] || '#00d4ff'}, transparent)`,
+        background: `linear-gradient(135deg, ${gradient.split('from-')[1]?.split(' ')[0] || '#3B82F6'}, transparent)`,
         padding: '1.5rem 1.5rem 0',
         paddingTop: '1.5rem',
       }}>

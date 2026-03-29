@@ -31,92 +31,48 @@ const Experience = () => {
         </div>
 
         {/* Timeline */}
-        <div style={{ position: 'relative', paddingLeft: '3rem', maxWidth: 800, margin: '0 auto' }}>
+        <div className="relative pl-6 sm:pl-12 max-w-[800px] mx-auto">
           {/* vertical line */}
-          <div className="timeline-line" />
+          <div className="timeline-line sm:left-[20px] left-[10px]" />
 
           {experience.map((exp, i) => (
             <div
               key={exp.id}
-              className="reveal-left"
-              style={{
-                transitionDelay: `${i * 0.15}s`,
-                marginBottom: i < experience.length - 1 ? '3rem' : 0,
-                position: 'relative',
-              }}
+              className="reveal-left relative mb-12 last:mb-0"
+              style={{ transitionDelay: `${i * 0.15}s` }}
             >
               {/* dot */}
               <div
-                className="timeline-dot"
-                style={{
-                  position: 'absolute',
-                  left: -21,
-                  top: 0,
-                }}
+                className="timeline-dot absolute sm:left-[-21px] left-[-31px] top-0"
               >
                 <Briefcase size={16} style={{ color: '#000' }} />
               </div>
 
               {/* Card */}
-              <div style={{
-                background: 'var(--bg-card)',
-                border: '1px solid var(--border)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '2rem',
-                transition: 'var(--transition)',
-                marginLeft: '1rem',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(0,212,255,0.3)';
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = 'var(--glow-cyan)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'var(--border)';
-                e.currentTarget.style.transform = '';
-                e.currentTarget.style.boxShadow = '';
-              }}
+              <div 
+                className="bg-[var(--bg-card)] border border-[var(--border)] rounded-[var(--radius-lg)] p-5 sm:p-8 ml-2 sm:ml-4 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-[0_0_50px_rgba(34,211,238,0.1)]"
               >
                 {/* Header row */}
-                <div style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  gap: '0.75rem',
-                  marginBottom: '1.25rem',
-                }}>
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-3 sm:gap-4 mb-5">
                   <div>
-                    <div style={{
-                      display: 'inline-block',
-                      padding: '0.25rem 0.75rem',
-                      background: 'rgba(0,212,255,0.08)',
-                      border: '1px solid rgba(0,212,255,0.2)',
-                      borderRadius: 100,
-                      fontSize: '0.72rem',
-                      fontWeight: 600,
-                      color: 'var(--accent-cyan)',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.06em',
-                      marginBottom: '0.6rem',
-                    }}>
+                    <div className="inline-block px-3 py-1 bg-blue-600/10 border border-blue-500/20 rounded-full text-[0.72rem] font-bold text-blue-600 tracking-wider uppercase mb-2">
                       {exp.type}
                     </div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
+                    <h3 className="text-[1.1rem] font-bold text-[var(--text-primary)] mb-1">
                       {exp.role}
                     </h3>
-                    <p className="gradient-text-cyan" style={{ fontSize: '0.9rem', fontWeight: 600 }}>
+                    <p className="gradient-text-crown text-[0.9rem] font-semibold">
                       {exp.company}
                     </p>
                   </div>
 
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', alignItems: 'flex-end' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
-                      <Calendar size={13} />
+                  <div className="flex flex-wrap sm:flex-col items-start sm:items-end gap-3 sm:gap-1.5 mt-1 sm:mt-0">
+                    <div className="flex items-center gap-1.5 text-[var(--text-muted)] text-[0.82rem]">
+                      <Calendar size={13} className="text-blue-600" />
                       {exp.duration}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-muted)', fontSize: '0.82rem' }}>
-                      <MapPin size={13} />
+                    <div className="flex items-center gap-1.5 text-[var(--text-muted)] text-[0.82rem]">
+                      <MapPin size={13} className="text-blue-600" />
                       {exp.location}
                     </div>
                   </div>
