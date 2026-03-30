@@ -27,18 +27,21 @@ export const portfolioData = {
 
   skills: {
     frontend: [
-      { name: "ReactJS", level: 85 },
-      { name: "JavaScript (ES6+)", level: 82 },
       { name: "HTML5/CSS3", level: 90 },
       { name: "Tailwind CSS", level: 88 },
+      { name: "JavaScript (ES6+)", level: 82 },
+      { name: "ReactJS", level: 85 },
     ],
     backend: [
       { name: "Spring Boot", level: 80 },
-      { name: "FastAPI", level: 85 },
+      { name: "Fast API", level: 85 },
       { name: "Django", level: 75 },
       { name: "Node.js", level: 70 },
       { name: "RESTful API Design", level: 90 },
       { name: "JWT Authentication", level: 85 },
+      { name: "Flask", level: 75 },
+      { name: "Express.js", level: 70 },
+      { name: "Redis", level: 70 },
     ],
     database: [
       { name: "MySQL", level: 85 },
@@ -46,13 +49,14 @@ export const portfolioData = {
       { name: "PostgreSQL", level: 78 },
     ],
     cloudDevops: [
-      { name: "AWS (EC2, ECR, Lambda)", level: 75 },
+      { name: "AWS EC2", level: 75 },
+      { name: "AWS ECR", level: 75 },
+      { name: "AWS Lambda", level: 75 },
       { name: "Docker", level: 80 },
       { name: "Nginx", level: 65 },
       { name: "GitHub CI/CD", level: 70 },
-      { name: "Postman", level: 90 },
     ],
-    languages: ["Java", "Python", "SQL", "C"],
+    languages: ["C", "Java", "Python", "SQL"],
     tools: ["IntelliJ IDEA", "Eclipse", "Git/GitHub", "Postman", "Visual Studio Code"]
   },
 

@@ -28,7 +28,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', textAlign: 'center', order: 3 }}>
-            © {year} {personal.name} · Built with React & ❤️
+            © {year} {personal.name}
           </p>
 
           {/* Social links */}

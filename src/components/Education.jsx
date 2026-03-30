@@ -109,18 +109,14 @@ const Education = () => {
                 Languages
               </h3>
 
-              <div className="space-y-4">
+              <div className="flex flex-col gap-2.5">
                 {languages.map(({ name, level }) => (
-                  <div key={name}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-[var(--text-primary)] font-medium text-sm sm:text-base">{name}</span>
-                      <span className="text-[var(--text-muted)] text-[0.82rem]">{level}</span>
+                  <div key={name} className="flex justify-between items-center p-3 sm:p-4 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl hover:bg-slate-50 hover:border-blue-200 transition-all duration-300">
+                    <div className="font-semibold text-[0.95rem] text-[var(--text-primary)]">
+                      {name}
                     </div>
-                    <div className="skill-bar-track">
-                      <div
-                        className="skill-bar-fill"
-                        style={{ width: level === 'Native' ? '100%' : '85%' }}
-                      />
+                    <div className="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-100">
+                      {level}
                     </div>
                   </div>
                 ))}

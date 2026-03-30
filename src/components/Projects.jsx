@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import ProjectCard from './ProjectCard';
+import { ArrowRight } from 'lucide-react';
 
 const CATEGORIES = ['All', ...new Set(portfolioData.projects.map(p => p.category))];
 
@@ -8,26 +9,76 @@ const Projects = () => {
   const { projects } = portfolioData;
   const [filter, setFilter] = useState('All');
   const sectionRef = useRef(null);
+  const scrollRef = useRef(null);
+  const [showArrow, setShowArrow] = useState(true);
 
   const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setShowArrow(scrollLeft + clientWidth < scrollWidth - 20);
+    }
+  };
+
   useEffect(() => {
+    // Reset scroll when filter changes
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = 0;
+    }
+
+    // 1. General scroll reveal logic
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('visible');
-          e.target.style.opacity = 1;
-          e.target.style.transform = 'scale(1)';
+          if (window.innerWidth >= 768 || !e.target.classList.contains('project-card-wrapper')) {
+            e.target.style.opacity = 1;
+            e.target.style.transform = 'scale(1)';
+          }
         }
       }),
       { threshold: 0.1 }
     );
+
+    // 2. Mobile popout carousel logic
+    const popoutObserver = new IntersectionObserver(
+      (entries) => {
+        if (window.innerWidth >= 768) return; // Only apply on mobile
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('mobile-active-card');
+            e.target.classList.remove('mobile-inactive-card');
+          } else {
+            e.target.classList.add('mobile-inactive-card');
+            e.target.classList.remove('mobile-active-card');
+          }
+        });
+      },
+      { 
+        root: scrollRef.current,
+        threshold: 0.55 // When a card is >55% visible within the scroll container, it's the center one
+      }
+    );
+
     const timer = setTimeout(() => {
+      // Observe reveal
       sectionRef.current?.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+      
+      // Observe mobile popout
+      if (window.innerWidth < 768 && scrollRef.current) {
+        scrollRef.current.querySelectorAll('.project-card-wrapper').forEach(el => {
+          popoutObserver.observe(el);
+          // Initial state before intersection fires
+          el.classList.add('mobile-inactive-card'); 
+        });
+      }
     }, 50);
+
     return () => {
       clearTimeout(timer);
       observer.disconnect();
+      popoutObserver.disconnect();
     };
   }, [filter]);
 
@@ -58,17 +109,31 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Project cards grid */}
-        <div className="projects-grid hide-scrollbar snap-x">
-          {filtered.map((project, i) => (
-            <div
-              key={`${project.id}-${filter}`}
-              className="reveal-scale project-card-wrapper snap-center"
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <ProjectCard project={project} />
+        {/* Horizontal Container with Swipe Indicator */}
+        <div className="relative w-full">
+          {/* Mobile Right Arrow Indicator */}
+          {showArrow && (
+            <div className="absolute right-0 sm:-right-2 top-1/2 -translate-y-1/2 z-20 md:hidden w-9 h-9 shadow-lg border border-slate-200 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-blue-600 pointer-events-none transition-opacity duration-300">
+              <ArrowRight size={18} className="animate-swipe" />
             </div>
-          ))}
+          )}
+
+          {/* Project cards grid */}
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className={`projects-grid hide-scrollbar snap-x px-6 -mx-6 md:px-0 md:mx-0 py-4 ${filtered.length === 1 ? 'justify-center' : ''}`}
+          >
+            {filtered.map((project, i) => (
+              <div
+                key={`${project.id}-${filter}`}
+                className="reveal-scale project-card-wrapper snap-center"
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* GitHub CTA */}
@@ -121,11 +186,34 @@ const Projects = () => {
         .projects-grid::-webkit-scrollbar {
           display: none;
         }
-        .project-card-wrapper {
-          width: 85vw;
-          max-width: 350px;
-          flex-shrink: 0;
+        @keyframes swipe {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(4px); }
         }
+        .animate-swipe {
+          animation: swipe 1.5s ease-in-out infinite;
+        }
+        .project-card-wrapper {
+          width: 72vw;
+          min-width: 290px;
+          max-width: 360px;
+          flex-shrink: 0;
+          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, filter 0.4s ease;
+        }
+        
+        @media (max-width: 767px) {
+          .mobile-active-card {
+            transform: scale(1) translateY(0) !important;
+            opacity: 1 !important;
+            filter: blur(0) !important;
+          }
+          .mobile-inactive-card {
+            transform: scale(0.85) translateY(10px) !important;
+            opacity: 0.4 !important;
+            filter: blur(1.5px) !important;
+          }
+        }
+
         @media (min-width: 640px) {
           .projects-grid {
             display: grid;
