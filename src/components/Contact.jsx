@@ -39,7 +39,7 @@ const SOCIAL_CARDS = [
   {
     key: 'instagram',
     label: 'Instagram',
-    username: '_b_lank_heart_dinesh_21',
+    username: 'its_me_dinesh3_',
     icon: Instagram,
     color: '#7C3AED',
     bg: 'rgba(236,72,153,0.05)',
@@ -85,7 +85,8 @@ const Contact = () => {
               Find Me On
             </h3>
 
-            {SOCIAL_CARDS.map(({ key, label, username, icon: Icon, color, bg, border, hoverBg, hoverBorder }) => {
+            {SOCIAL_CARDS.map(({ key, label, username, icon, color, bg, border, hoverBg, hoverBorder }) => {
+              const Icon = icon;
               const href = social[key] || '#';
               return (
                 <a

@@ -22,7 +22,7 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/dinesh-kingston-s-628031259",
     github: "https://www.github.com/DineshKingston",
     email: "mailto:dineshkingston94@gmail.com",
-    instagram: "https://www.instagram.com/_b_lank_heart_dinesh_21/",
+    instagram: "https://www.instagram.com/its_me_dinesh3_/",
   },
 
   skills: {
