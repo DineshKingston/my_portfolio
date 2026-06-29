@@ -110,7 +110,7 @@ export const portfolioData = {
         "CSV/Excel report exports",
         "Containerized with Docker & deployed on AWS"
       ],
-      github: "https://www.github.com/DineshKingston",
+      github: "https://www.github.com/DineshKingston/CSAT-forms.git",
       demo: "#",
       status: "Production Ready",
       category: "Backend/Cloud",
@@ -165,6 +165,23 @@ export const portfolioData = {
       status: "Completed",
       category: "IoT",
       gradient: "from-emerald-500 to-teal-600"
+    },
+    {
+      id: 5,
+      title: "Velozity: Production-Grade Multi-Tenant API",
+      description: "High-performance REST API built for modern B2B SaaS platforms with strict tenant isolation, cryptographic audit trails, and intelligent rate limiting.",
+      technologies: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "Redis", "BullMQ"],
+      features: [
+        "Absolute Tenant Isolation (Fail-Closed)",
+        "Intelligent Rate Limiting (Sliding Window)",
+        "Tamper-Evident Audit Trail (SHA-256)",
+        "Resilient Email Engine (BullMQ)"
+      ],
+      github: "https://github.com/DineshKingston/VeloZity_Saas.git",
+      demo: "#",
+      status: "Completed",
+      category: "Backend/SaaS",
+      gradient: "from-orange-500 to-amber-500"
     }
   ],
 
