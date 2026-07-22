@@ -27,13 +27,14 @@ export const portfolioData = {
 
   skills: {
     frontend: [
+      { name: "Flutter / Dart", level: 92 },
       { name: "HTML5/CSS3", level: 90 },
       { name: "Tailwind CSS", level: 88 },
       { name: "JavaScript (ES6+)", level: 82 },
       { name: "ReactJS", level: 85 },
     ],
     backend: [
-      { name: "Spring Boot", level: 80 },
+      { name: "Spring Boot", level: 85 },
       { name: "Fast API", level: 85 },
       { name: "Django", level: 75 },
       { name: "Node.js", level: 70 },
@@ -44,20 +45,23 @@ export const portfolioData = {
       { name: "Redis", level: 70 },
     ],
     database: [
+      { name: "PostgreSQL + pgvector", level: 88 },
       { name: "MySQL", level: 85 },
       { name: "MongoDB", level: 75 },
-      { name: "PostgreSQL", level: 78 },
     ],
     cloudDevops: [
-      { name: "AWS EC2", level: 75 },
+      { name: "AWS EC2", level: 80 },
+      { name: "k6 Performance Testing", level: 90 },
+      { name: "Prometheus & Grafana", level: 85 },
+      { name: "Docker", level: 85 },
+      { name: "GitHub CI/CD", level: 85 },
+      { name: "Nginx", level: 75 },
       { name: "AWS ECR", level: 75 },
       { name: "AWS Lambda", level: 75 },
-      { name: "Docker", level: 80 },
-      { name: "Nginx", level: 65 },
-      { name: "GitHub CI/CD", level: 70 },
     ],
-    languages: ["C", "Java", "Python", "SQL"],
-    tools: ["IntelliJ IDEA", "Eclipse", "Git/GitHub", "Postman", "Visual Studio Code"]
+    languages: ["Dart", "Java", "Python", "SQL", "C"],
+    tools: ["IntelliJ IDEA", "Android Studio", "VS Code", "Git/GitHub", "Postman", "k6 Engine"]
+
   },
 
   experience: [
@@ -100,7 +104,27 @@ export const portfolioData = {
   projects: [
     {
       id: 1,
+      title: "LifeOS — AI-Powered Personal Operating System",
+      description: "Enterprise-grade personal operating system featuring streaming AI assistance, RAG document knowledge vault, goal feasibility tracking, k6 load testing certification, and automated task rescheduling.",
+      technologies: ["Flutter", "Spring Boot 3.3", "PostgreSQL", "pgvector", "AWS EC2", "Docker", "Prometheus", "Grafana", "k6 Testing", "OpenRouter AI"],
+      features: [
+        "SSE Streaming AI Chat Engine (DeepSeek V4 / OpenCode)",
+        "RAG Document Knowledge Vault (pgvector HNSW indexes)",
+        "Autonomous Goal Engine & Feasibility Analysis",
+        "FCM Push Notification System (DJB2 Tray Isolation)",
+        "k6 Load Certified (339.81 RPS @ 0% Error Rate)",
+        "Hardware Keystore Security & Android R8 Obfuscation"
+      ],
+      github: "https://github.com/DineshKingston/LifeOs",
+      demo: "https://github.com/DineshKingston/LifeOs/releases/latest",
+      status: "Production Certified",
+      category: "Full-Stack AI & Mobile",
+      gradient: "from-indigo-600 via-purple-600 to-emerald-500"
+    },
+    {
+      id: 2,
       title: "Client Pulse – CSAT Analytics System",
+
       description: "Production-ready backend API to collect and manage customer feedback. Features admin analytics dashboard, reporting APIs, and AWS integration.",
       technologies: ["FastAPI", "MySQL", "JWT", "AWS S3", "Docker", "AWS ECR", "AWS EC2", "Nginx", "CI/CD"],
       features: [
