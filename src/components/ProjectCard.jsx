@@ -1,13 +1,17 @@
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const GRADIENT_MAP = {
-  'AI/ML': 'linear-gradient(135deg, #7c3aed, #6d28d9)',
-  'Web':   'linear-gradient(135deg, #0891b2, #0284c7)',
-  'IoT':   'linear-gradient(135deg, #059669, #0d9488)',
+  'Full-Stack AI':          'linear-gradient(135deg, #4f46e5, #0891b2)',
+  'Full-Stack AI & Mobile': 'linear-gradient(135deg, #6366f1, #10b981)',
+  'AI/ML':                  'linear-gradient(135deg, #7c3aed, #6d28d9)',
+  'Backend/Cloud':          'linear-gradient(135deg, #0891b2, #0284c7)',
+  'Backend/SaaS':           'linear-gradient(135deg, #f97316, #d97706)',
+  'IoT':                    'linear-gradient(135deg, #059669, #0d9488)',
 };
 
 const ProjectCard = ({ project }) => {
   const { title, description, technologies, features, github, demo, category, gradient } = project;
+  const isLifeOS = title.includes('LifeOS');
 
   return (
     <div
@@ -39,9 +43,9 @@ const ProjectCard = ({ project }) => {
             borderRadius: 100,
             fontSize: '0.7rem',
             fontWeight: 600,
-            background: 'rgba(16,185,129,0.15)',
-            color: 'var(--accent-emerald)',
-            border: '1px solid rgba(16,185,129,0.25)',
+            background: isLifeOS ? 'rgba(16,185,129,0.2)' : 'rgba(16,185,129,0.15)',
+            color: isLifeOS ? '#10b981' : 'var(--accent-emerald)',
+            border: '1px solid rgba(16,185,129,0.3)',
           }}>
             ✓ {project.status}
           </span>
@@ -81,9 +85,9 @@ const ProjectCard = ({ project }) => {
           listStyle: 'none',
           padding: 0,
         }}>
-          {features.slice(0, 3).map((f, i) => (
+          {features.slice(0, 4).map((f, i) => (
             <li key={i} style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
-              <span style={{ color: 'var(--accent-cyan)', fontSize: '0.75rem', marginTop: '0.2rem', flexShrink: 0 }}>▸</span>
+              <span style={{ color: isLifeOS ? '#10b981' : 'var(--accent-cyan)', fontSize: '0.75rem', marginTop: '0.2rem', flexShrink: 0 }}>▸</span>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.815rem', lineHeight: 1.5 }}>{f}</span>
             </li>
           ))}
@@ -102,6 +106,8 @@ const ProjectCard = ({ project }) => {
         {/* Actions */}
         <div style={{
           display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           gap: '0.75rem',
           paddingTop: '1rem',
           borderTop: '1px solid var(--border)',
@@ -138,18 +144,18 @@ const ProjectCard = ({ project }) => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '0.4rem',
-                color: 'var(--text-secondary)',
+                color: isLifeOS ? '#10b981' : 'var(--text-secondary)',
                 fontSize: '0.82rem',
-                fontWeight: 500,
+                fontWeight: 600,
                 textDecoration: 'none',
                 transition: 'color 0.2s ease',
                 padding: '0.4rem 0',
               }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--accent-cyan)'}
-              onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
+              onMouseLeave={e => e.currentTarget.style.color = isLifeOS ? '#10b981' : 'var(--text-secondary)'}
             >
               <ExternalLink size={15} />
-              Live Demo
+              {isLifeOS ? '📱 Download APK' : 'Live Demo'}
             </a>
           )}
         </div>

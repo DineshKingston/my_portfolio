@@ -108,19 +108,17 @@ export const portfolioData = {
       description: "Enterprise-grade personal operating system featuring streaming AI assistance, RAG document knowledge vault, goal feasibility tracking, k6 load testing certification, and automated task rescheduling.",
       technologies: ["Flutter", "Spring Boot 3.3", "PostgreSQL", "pgvector", "AWS EC2", "Docker", "Prometheus", "Grafana", "k6 Testing", "OpenRouter AI"],
       features: [
-        "SSE Streaming AI Chat Engine (DeepSeek V4 / OpenCode)",
-        "RAG Document Knowledge Vault (pgvector HNSW indexes)",
-        "Autonomous Goal Engine & Feasibility Analysis",
-        "FCM Push Notification System (DJB2 Tray Isolation)",
-        "k6 Load Certified (339.81 RPS @ 0% Error Rate)",
-        "Hardware Keystore Security & Android R8 Obfuscation"
+        "SSE Streaming AI Chat Engine (DeepSeek V4)",
+        "RAG Knowledge Vault (pgvector HNSW indexes)",
+        "k6 Load Certified (339.81 RPS @ 0% Error)"
       ],
       github: "https://github.com/DineshKingston/LifeOs",
       demo: "https://github.com/DineshKingston/LifeOs/releases/latest",
       status: "Production Certified",
-      category: "Full-Stack AI & Mobile",
-      gradient: "from-indigo-600 via-purple-600 to-emerald-500"
+      category: "Full-Stack AI",
+      gradient: "from-indigo-600 to-cyan-500"
     },
+
     {
       id: 2,
       title: "Client Pulse – CSAT Analytics System",
