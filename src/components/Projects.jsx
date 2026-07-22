@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import ProjectCard from './ProjectCard';
+import LifeOSShowcase from './LifeOSShowcase';
 import { ArrowRight } from 'lucide-react';
 
 const CATEGORIES = ['All', ...new Set(portfolioData.projects.map(p => p.category))];
@@ -91,8 +92,13 @@ const Projects = () => {
           <div className="section-badge">Projects</div>
           <h2 className="section-title">Featured Work</h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            A collection of projects showcasing AI, full-stack, and IoT development
+            A collection of enterprise full-stack, AI, and IoT applications
           </p>
+        </div>
+
+        {/* Flagship LifeOS Showcase */}
+        <div className="reveal" style={{ marginBottom: '3.5rem' }}>
+          <LifeOSShowcase />
         </div>
 
         {/* Filter tabs */}
@@ -158,83 +164,6 @@ const Projects = () => {
           </a>
         </div>
       </div>
-
-      <style>{`
-        .filter-tabs-container {
-          display: flex;
-          gap: 0.5rem;
-          margin-bottom: 2.5rem;
-          overflow-x: auto;
-          flex-wrap: nowrap;
-          -webkit-overflow-scrolling: touch;
-          scrollbar-width: none;
-          -ms-overflow-style: none;
-          scroll-snap-type: x mandatory;
-          padding-bottom: 0.5rem;
-        }
-        .filter-tabs-container::-webkit-scrollbar {
-          display: none;
-        }
-        .projects-grid {
-          display: flex;
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          gap: 1.5rem;
-          padding-bottom: 2rem;
-          -webkit-overflow-scrolling: touch;
-        }
-        .projects-grid::-webkit-scrollbar {
-          display: none;
-        }
-        @keyframes swipe {
-          0%, 100% { transform: translateX(0); }
-          50% { transform: translateX(4px); }
-        }
-        .animate-swipe {
-          animation: swipe 1.5s ease-in-out infinite;
-        }
-        .project-card-wrapper {
-          width: 72vw;
-          min-width: 290px;
-          max-width: 360px;
-          flex-shrink: 0;
-          transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, filter 0.4s ease;
-        }
-        
-        @media (max-width: 767px) {
-          .mobile-active-card {
-            transform: scale(1) translateY(0) !important;
-            opacity: 1 !important;
-            filter: blur(0) !important;
-          }
-          .mobile-inactive-card {
-            transform: scale(0.85) translateY(10px) !important;
-            opacity: 0.4 !important;
-            filter: blur(1.5px) !important;
-          }
-        }
-
-        @media (min-width: 640px) {
-          .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr) !important;
-            overflow-x: visible;
-            padding-bottom: 0;
-          }
-          .project-card-wrapper {
-            width: auto;
-            max-width: none;
-          }
-          .filter-tabs-container {
-            justify-content: center;
-            flex-wrap: wrap;
-            overflow-x: visible;
-          }
-        }
-        @media (min-width: 1024px) {
-          .projects-grid { grid-template-columns: repeat(3, 1fr) !important; }
-        }
-      `}</style>
     </section>
   );
 };
