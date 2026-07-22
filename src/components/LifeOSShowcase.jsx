@@ -145,7 +145,7 @@ export default function LifeOSShowcase() {
       {/* Action Buttons */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
         <a
-          href="https://github.com/DineshKingston/LifeOs/releases/latest"
+          href="https://github.com/DineshKingston/LifeOS-Showcase/raw/main/releases/app-arm64-v8a-release.apk"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary"
@@ -156,14 +156,14 @@ export default function LifeOSShowcase() {
         </a>
 
         <a
-          href="https://github.com/DineshKingston/LifeOs"
+          href="https://github.com/DineshKingston/LifeOS-Showcase"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-secondary"
           style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.4rem', borderRadius: '12px', fontWeight: 600, fontSize: '0.85rem' }}
         >
           <Github size={15} />
-          <span>View GitHub Repository</span>
+          <span>View GitHub Showcase Repo</span>
         </a>
       </div>
 

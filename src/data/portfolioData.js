@@ -112,8 +112,8 @@ export const portfolioData = {
         "RAG Knowledge Vault (pgvector HNSW indexes)",
         "k6 Load Certified (339.81 RPS @ 0% Error)"
       ],
-      github: "https://github.com/DineshKingston/LifeOs",
-      demo: "https://github.com/DineshKingston/LifeOs/releases/latest",
+      github: "https://github.com/DineshKingston/LifeOS-Showcase",
+      demo: "https://github.com/DineshKingston/LifeOS-Showcase/raw/main/releases/app-arm64-v8a-release.apk",
       status: "Production Certified",
       category: "Full-Stack AI",
       gradient: "from-indigo-600 to-cyan-500"
