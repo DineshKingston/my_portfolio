@@ -3,6 +3,7 @@ import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 const GRADIENT_MAP = {
   'Full-Stack AI':          'linear-gradient(135deg, #4f46e5, #0891b2)',
   'Full-Stack AI & Mobile': 'linear-gradient(135deg, #6366f1, #10b981)',
+  'Desktop App':            'linear-gradient(135deg, #0891b2, #10b981)',
   'AI/ML':                  'linear-gradient(135deg, #7c3aed, #6d28d9)',
   'Backend/Cloud':          'linear-gradient(135deg, #0891b2, #0284c7)',
   'Backend/SaaS':           'linear-gradient(135deg, #f97316, #d97706)',

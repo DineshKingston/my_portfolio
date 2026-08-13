@@ -50,11 +50,12 @@ const Resume = () => {
             <div className="mt-8">
               <h4 className="text-lg font-semibold text-blue-400 mb-3">Recent Projects</h4>
               <ul className="space-y-2 text-slate-300">
-                <li>• Object Detection Using Raspberry Pi with YOLO/TensorFlow</li>
-                <li>• Voice Recognition System with real-time speech-to-text</li>
+                <li>• Nova API Studio — Desktop API Testing Platform (Postman Alternative)</li>
+                <li>• LifeOS — AI-Powered Personal Operating System</li>
                 <li>• Velozity: Multi-Tenant SaaS API with rate limiting and audit trails</li>
-                <li>• Document Read AI Agent (Latest Project)</li>
-                <li>• ML Multiple Disease Prediction System</li>
+                <li>• Client Pulse – CSAT Analytics System with AWS & FastAPI</li>
+                <li>• Multi-Document AI Assistant with Spring Boot & Gemini API</li>
+                <li>• Object Detection Using Raspberry Pi with YOLO/TensorFlow</li>
               </ul>
             </div>
           </div>

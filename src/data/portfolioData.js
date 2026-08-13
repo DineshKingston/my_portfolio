@@ -10,7 +10,7 @@ export const portfolioData = {
     shortBio: "Building scalable backend architectures and intelligent systems.",
     availability: "Open to Opportunities",
     stats: [
-      { label: "Projects", value: "5+" },
+      { label: "Projects", value: "6+" },
       { label: "Technologies", value: "15+" },
       { label: "CGPA", value: "8.5+" },
       { label: "Experience", value: "Interned"},
@@ -60,7 +60,7 @@ export const portfolioData = {
       { name: "AWS Lambda", level: 75 },
     ],
     languages: ["Dart", "Java", "Python", "SQL", "C"],
-    tools: ["IntelliJ IDEA", "Android Studio", "VS Code", "Git/GitHub", "Postman", "k6 Engine"]
+    tools: ["IntelliJ IDEA", "Android Studio", "VS Code", "Git/GitHub", "Postman", "Nova API Studio", "k6 Engine"]
 
   },
 
@@ -118,9 +118,26 @@ export const portfolioData = {
       category: "Full-Stack AI",
       gradient: "from-indigo-600 to-cyan-500"
     },
-
     {
       id: 2,
+      title: "Nova API Studio — Desktop API Client (Postman Alternative)",
+      description: "Lightweight, privacy-first Windows desktop API testing platform supporting HTTP/REST, WebSocket, GraphQL, and gRPC testing with local SQLite vault, vm2 scripting sandbox, and embedded mock server.",
+      technologies: ["Electron", "React 18", "TypeScript", "SQLite", "Monaco Editor", "Tailwind CSS", "Axios", "Zustand", "vm2 Sandbox"],
+      features: [
+        "Multi-Protocol Execution (HTTP, WS, GraphQL & gRPC)",
+        "Local Encrypted Vault (SQLite & Windows Credential Manager)",
+        "Embedded Mock Server Engine & vm2 Scripting Sandbox",
+        "Collection Runner with multi-format report exports"
+      ],
+      github: "https://github.com/DineshKingston/nova-api-studio",
+      demo: "https://github.com/DineshKingston/nova-api-studio",
+      status: "v1.0.0 Released",
+      category: "Desktop App",
+      gradient: "from-cyan-600 to-emerald-500"
+    },
+
+    {
+      id: 3,
       title: "Client Pulse – CSAT Analytics System",
 
       description: "Production-ready backend API to collect and manage customer feedback. Features admin analytics dashboard, reporting APIs, and AWS integration.",
@@ -139,7 +156,7 @@ export const portfolioData = {
       gradient: "from-blue-600 to-cyan-500"
     },
     {
-      id: 2,
+      id: 4,
       title: "Multi-Document AI Assistant",
       description: "Comprehensive document processing system for analysis and Q&A using Gemini AI and Spring Boot.",
       technologies: ["React", "Spring Boot", "MongoDB", "Gemini API", "Java"],
@@ -156,7 +173,7 @@ export const portfolioData = {
       gradient: "from-violet-500 to-purple-600"
     },
     {
-      id: 3,
+      id: 5,
       title: "Velozity: Production-Grade Multi-Tenant API",
       description: "High-performance REST API built for modern B2B SaaS platforms with strict tenant isolation, cryptographic audit trails, and intelligent rate limiting.",
       technologies: ["Node.js", "TypeScript", "Fastify", "PostgreSQL", "Prisma", "Redis", "BullMQ"],
@@ -173,7 +190,7 @@ export const portfolioData = {
       gradient: "from-orange-500 to-amber-500"
     },
     {
-      id: 4,
+      id: 6,
       title: "Object Detection — Raspberry Pi",
       description: "Real-time object detection system using Raspberry Pi and OpenCV to identify humans and objects.",
       technologies: ["Python", "OpenCV", "Raspberry Pi", "YOLO", "TensorFlow"],
